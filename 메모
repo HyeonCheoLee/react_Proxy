@@ -1,0 +1,22 @@
+proxcy
+
+ajax같은 기술을 이용하여 데이터조작
+이때 사용하는 대표적인 api:fetch
+따라서 이렇게 표현 -> fetch(http://localhost:8000/api_path) 하여 백엔드서버로 요청하여 데이터 가져옴
+
+그러나 포트번호가 바뀌거나
+실제 운영서버로 넘어갈경우
+cors 브라우저 보안에 관한 문제로 연결이 안된다.
+또한 로그인기능시 보통 백엔드에서 하는데 로그인성공시 브라우저에 쿠키를 심어놓는데 그 이후부터는 쿠키값을 자동전송을 해주기 때문에 로그인한 사람의 정보를 보여주는데
+문제는 포트가 다르면 with credential 옵션을 통해 쿠키를 전송해줘야한다/
+
+이러한 문제때문에 proxy 를 사용한다.
+
+간단하게 웹서버 구성방법
+npx local-web-server는 로컬웹서버에 해당하는 패키지를 npm에서 다운받아 실행시켜줌
+패키지 설치후 3가지 url중 하나를 선택 Listening on http://DESKTOP-QM2JKAE:8000, http://192.168.45.119:8000, http://127.0.0.1:8000
+완료
+
+이후 npx create-react-app reactapp 으로 react dev 환경 세팅
+
+https://junhyunny.github.io/information/react/react-proxy/  참고
